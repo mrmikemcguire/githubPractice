@@ -1,5 +1,7 @@
 // Here's an extraneous comment to test GitHub
 
+// This would replace Dropbox if I can get comfortable with it.
+
 public class MacVerse
 	{
 	private String name;

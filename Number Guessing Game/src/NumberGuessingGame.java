@@ -1,16 +1,17 @@
 import java.util.Random;
 import java.util.Scanner;
 
-
 public class NumberGuessingGame
 	{
+	static String name;
 	static int secretNumber;
-	private static Random randomNumber = new Random();
+	static int randomNumber;
 	static int userGuess;
 	static int guessCount = 0;
 	
 	public static void main(String[] args)
 		{
+		greetPlayer();
 		generateNumber();
 		System.out.println("I'm thinking of a number between 1 and 20, inclusive.");
 		while (userGuess != secretNumber)
@@ -25,9 +26,19 @@ public class NumberGuessingGame
 			System.out.println("That took you " + guessCount + " tries");
 		}
 	
+	public static String greetPlayer()
+		{
+		System.out.println("What is your name? ");
+		Scanner userInput = new Scanner(System.in);
+		name = userInput.nextLine();
+		System.out.println("Hi, " + name + "!");
+		return name;
+		}
+		
 	public static int generateNumber()
 		{
-		secretNumber = 1 + randomNumber.nextInt(20 );
+		Random randomNumber = new Random();
+		secretNumber = 1 + randomNumber.nextInt(20);
 		return secretNumber;
 		}
 	
@@ -44,7 +55,7 @@ public class NumberGuessingGame
 		if (userGuess == secretNumber)
 			{
 			System.out.println();
-			System.out.println("Congratulations, you're right!");
+			System.out.println("Congratulations, you're right, " + name + "!");
 			System.out.println();
 			}
 		else if (userGuess < 0 || userGuess > 20)
@@ -60,7 +71,4 @@ public class NumberGuessingGame
 			System.out.println("Nope, that's too high.  Try again.");
 			}
 		}
-	
-
-
 	}
